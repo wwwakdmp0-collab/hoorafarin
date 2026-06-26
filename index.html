@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>گالری هورآفرین</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body { 
+            height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center;
+            background-color: #fcfaf2; 
+            font-family: 'Tahoma', sans-serif;
+            cursor: pointer;
+        }
+
+        .candle-img {
+            width: 260px; 
+            height: 260px; 
+            border-radius: 50%;
+            object-fit: cover; 
+            border: 5px solid #fff;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.5s ease;
+        }
+
+        /* نام گالری - در ابتدا کاملاً شفاف (نامرئی) */
+        #brand-name {
+            margin-top: 30px;
+            font-size: 2rem; 
+            color: #5d4037;
+            font-weight: bold;
+            opacity: 0; /* مخفی */
+            transition: all 2s ease; /* انیمیشن نرم */
+            text-shadow: 0 0 10px rgba(212, 163, 115, 0);
+        }
+
+        /* استایل وقتی که کلیک شد */
+        .show {
+            opacity: 1 !important;
+            text-shadow: 0 0 15px rgba(212, 163, 115, 0.4) !important;
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body onclick="reveal()">
+
+    <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?q=80&w=500" class="candle-img" id="main-img">
+
+    <!-- نام گالری هورآفرین که اینجا قرار دارد -->
+    <div id="brand-name">گالری هورآفرین</div>
+
+    <script>
+        function reveal() {
+            // نمایش نام گالری
+            document.getElementById('brand-name').classList.add('show');
+            
+            // کمی بزرگ شدن عکس شمع برای جذابیت بیشتر
+            document.getElementById('main-img').style.transform = "scale(1.05)";
+        }
+    </script>
+
+</body>
+</html>

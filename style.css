@@ -1,0 +1,56 @@
+/* تعریف انیمیشن با سرعت بیشتر و رنگ نهایی شیک */
+@keyframes light-glow {
+    0% {
+        /* شروع با یک طلاییِ گرم و درخشان */
+        background: radial-gradient(circle, #ffdb58, #e67e22, #2c2c2c);
+    }
+    40% {
+        /* لحظه درخشش نوری (طلایی روشن) */
+        background: radial-gradient(circle, #fff4cc, #f7e1ad, #fcfaf2);
+    }
+    100% {
+        /* رنگ نهایی: کرم استخوانی بسیار لایت و لوکس */
+        background-color: #fcfaf2; 
+    }
+}
+
+body {
+    font-family: 'Tahoma', sans-serif;
+    margin: 0;
+    padding: 0;
+    /* زمان را به 2 ثانیه تغییر دادیم تا سریع‌تر اجرا شود */
+    animation: light-glow 2s ease-out forwards; 
+    color: #4a4a4a; /* رنگ متن را کمی خاکستری تیره کردیم که روی کرم زیباتر باشد */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header, main {
+    opacity: 0;
+    /* محتوا حالا سریع‌تر (بعد از 1.5 ثانیه) ظاهر می‌شود */
+    animation: fade-in 1.5s ease-in 1.2s forwards;
+}
+
+@keyframes fade-in {
+    to { opacity: 1; }
+}
+
+/* استایل دکمه برای هماهنگی با رنگ جدید */
+button {
+    background-color: #c48e5a; /* یک قهوه‌ای-طلاییِ مات */
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px; /* دکمه گردتر برای حس مدرن */
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #a67646;
+    transform: scale(1.05); /* یک افکت کوچک موقع نگه داشتن موس یا لمس */
+}
+ */
+  
