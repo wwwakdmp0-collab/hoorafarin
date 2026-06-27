@@ -1,119 +1,97 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>گالری هورآفرین</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>گالری هورآفرین</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="page">
-    <section class="card welcome-card" id="welcomeCard">
-      <h1 class="brand">گالری هورآفرین</h1>
-      <p class="subtitle">خلق لحظه‌های درخشان</p>
 
-      <p class="description">
-        هورآفرین در گالری هورآفرین، قصه‌ای از نور و هنر است. با شمع‌های دست‌ساز و
-        گیفت‌های اختصاصی، گرما و زیبایی را به خانه‌تان هدیه می‌دهیم.
-      </p>
+    <div class="container">
+        <!-- صفحه خوش‌آمدگویی -->
+        <div class="card" id="welcomeCard">
+            <h1>به گالری هورآفرین خوش آمدید</h1>
+            <p>شمع‌های دست‌ساز و هدیه‌های خاص برای لحظات شما</p>
+            <button class="btn btn-primary" id="enterBtn">ورود به سایت</button>
+        </div>
 
-      <div class="buttons">
-        <button class="btn btn-primary" id="enterBtn">ورود به گالری شمع</button>
-        <a class="btn btn-secondary" href="https://wa.me/989139095651" target="_blank" rel="noopener">
-          سفارش در واتس‌اپ
-        </a>
-      </div>
-    </section>
+        <!-- محتوای اصلی سایت (در ابتدا مخفی) -->
+        <div class="card hidden" id="contentCard">
+            <nav class="menu">
+                <button class="menu-item active" onclick="showSection('orderBox')">ثبت سفارش</button>
+                <button class="menu-item" onclick="showSection('aboutBox')">درباره ما</button>
+            </nav>
 
-    <section class="card content-card hidden" id="contentCard">
-      <h2 class="section-title">بخش‌های سایت</h2>
+            <!-- بخش ثبت سفارش و پرداخت -->
+            <div class="info-box" id="orderBox">
+                <h3>ثبت سفارش و پرداخت آنلاین</h3>
+                <p>اطلاعات زیر را وارد کنید و روی دکمه پرداخت کلیک کنید.</p>
+                
+                <div class="form-grid">
+                    <input type="text" id="name" placeholder="نام و نام خانوادگی">
+                    <input type="tel" id="phone" placeholder="شماره تماس">
+                    <input type="number" id="amount" placeholder="مبلغ سفارش (تومان)">
+                    <textarea id="details" placeholder="نام محصول یا توضیحات"></textarea>
+                </div>
 
-      <div class="menu-grid">
-        <button class="menu-item" data-target="galleryBox">گالری شمع‌ها</button>
-        <button class="menu-item" data-target="orderBox">ثبت سفارش</button>
-        <button class="menu-item" data-target="aboutBox">درباره ما</button>
-      </div>
+                <button class="btn btn-primary full" id="payBtn">پرداخت آنلاین و ثبت نهایی</button>
+            </div>
 
-      <div class="info-box hidden" id="galleryBox">
-        <h3>گالری شمع‌ها</h3>
-        <p>اینجا می‌توانی عکس محصولات، مدل‌ها و نمونه‌کارهای جدید را قرار بدهی.</p>
-      </div>
+            <!-- بخش درباره ما -->
+            <div class="info-box hidden" id="aboutBox">
+                <h3>درباره ما</h3>
+                <p>هورآفرین با تمرکز بر محصولات دست‌ساز، شمع‌های خاص و هدیه‌های ساده و شیک برای لحظه‌های مهم شما ساخته شده است.</p>
+            </div>
+        </div>
+    </div>
 
-      <div class="info-box hidden" id="orderBox">
-  <h3>ثبت سفارش و پرداخت</h3>
-  <p>اطلاعات زیر را وارد کنید و روی پرداخت کلیک کنید</p>
+    <script>
+        const enterBtn = document.getElementById('enterBtn');
+        const welcomeCard = document.getElementById('welcomeCard');
+        const contentCard = document.getElementById('contentCard');
 
-  <div class="form-grid">
-    <input type="text" id="name" placeholder="نام و نام خانوادگی">
-    <input type="tel" id="phone" placeholder="شماره تماس">
-    <input type="number" id="amount" placeholder="مبلغ سفارش (تومان)">
-    <textarea id="details" placeholder="جزئیات سفارش"></textarea>
-  </div>
+        // دکمه ورود به سایت
+        enterBtn.addEventListener('click', () => {
+            welcomeCard.classList.add('hidden');
+            contentCard.classList.remove('hidden');
+        });
 
-  <button class="btn btn-primary full" id="payBtn">پرداخت آنلاین</button>
-</div>
-      
-      <div class="info-box hidden" id="aboutBox">
-        <h3>درباره ما</h3>
-        <p>
-          گالری هورآفرین با تمرکز بر محصولات دست‌ساز، شمع‌های خاص و هدیه‌های
-          ساده و شیک برای لحظه‌های مهم شما ساخته شده است.
-        </p>
-      </div>
-    </section>
-  </main>
+        // تابع جابجایی بین منوها
+        function showSection(id) {
+            // مخفی کردن همه باکس‌ها
+            document.querySelectorAll('.info-box').forEach(box => {
+                box.classList.add('hidden');
+            });
+            // نمایش باکس کلیک شده
+            document.getElementById(id).classList.remove('hidden');
+            
+            // تغییر استایل دکمه‌های منو
+            document.querySelectorAll('.menu-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
 
-  <script>
-    const enterBtn = document.getElementById('enterBtn');
-    const welcomeCard = document.getElementById('welcomeCard');
-    const contentCard = document.getElementById('contentCard');
-    const menuItems = document.querySelectorAll('.menu-item');
-    const infoBoxes = document.querySelectorAll('.info-box');
-    const sendOrderBtn = document.getElementById('sendOrderBtn');
+        // کد مربوط به پرداخت
+        const payBtn = document.getElementById('payBtn');
+        payBtn.addEventListener('click', () => {
+            const name = document.getElementById('name').value;
+            const amount = document.getElementById('amount').value;
+            const phone = document.getElementById('phone').value;
 
-    enterBtn.addEventListener('click', () => {
-      welcomeCard.classList.add('hidden');
-      contentCard.classList.remove('hidden');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+            if (!name || !amount || !phone) {
+                alert("لطفاً نام، شماره تماس و مبلغ را وارد کنید.");
+                return;
+            }
 
-    menuItems.forEach((item) => {
-      item.addEventListener('click', () => {
-        const targetId = item.dataset.target;
-        infoBoxes.forEach((box) => box.classList.add('hidden'));
-        document.getElementById(targetId).classList.remove('hidden');
-      });
-    });
-
-    sendOrderBtn?.addEventListener('click', () => {
-      const name = document.getElementById('name').value.trim();
-      const phone = document.getElementById('phone').value.trim();
-      const details = document.getElementById('details').value.trim();
-
-      const message =
-        `سلام، سفارش جدید دارم:%0A` +
-        `نام: ${name || '-'}%0A` +
-        `شماره تماس: ${phone || '-'}%0A` +
-        `توضیحات: ${details || '-'}`;
-
-      window.open(`https://wa.me/989139095651?text=${message}`, '_blank');
-      const payBtn = document.getElementById('payBtn');
-
-payBtn.addEventListener('click', () => {
-  const name = document.getElementById('name').value;
-  const amount = document.getElementById('amount').value;
-  
-  if(!amount || !name) {
-    alert("لطفاً نام و مبلغ را وارد کنید");
-    return;
-  }
-
-  // لینک پرداخت شخصی خودت را اینجا بگذار (مثلاً لینک زرین‌پال)
-  // مثال: https://zarinp.al/YourUserName/amount
-  const zarinpalLink = `https://zarinp.al/YourID/${amount}`;
-  
-  window.open(zarinpalLink, '_blank');
-    });
-  </script>
+            // فعلاً از لینک تستی استفاده شده، فردا لینک خودت را جایگزین کن
+            // به جای YourID، نام کاربری زرین‌پال خودت را بگذار
+            const zarinpalLink = `https://zarinp.al/YourID/${amount}`;
+            
+            // باز کردن درگاه پرداخت در تب جدید
+            window.open(zarinpalLink, '_blank');
+        });
+    </script>
 </body>
 </html>
