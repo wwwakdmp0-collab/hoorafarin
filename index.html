@@ -1,31 +1,102 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>گالری هورآفرین - خلق لحظه‌های درخشان</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>گالری هورآفرین</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="container">
-        <h1>گالری هورآفرین</h1>
-        <h2>خلق لحظه‌های درخشان</h2>
-        
-        <!-- تصویر محصول -->
-        <img src="candlelight-serene-moment-by-hoorafarin-gallery.png" alt="شمع گالری هورآفرین" class="product-image">
-        
-        <p class="description">
-            هر آفرینش در گالری هورآفرین، قصه‌ای از نور و هنر است. با شمع‌های دست‌ساز و گیفت‌های اختصاصی، گرما و زیبایی را به خانه‌هایتان هدیه می‌دهیم. 
-        </p>
+  <main class="page">
+    <section class="card welcome-card" id="welcomeCard">
+      <h1 class="brand">گالری هورآفرین</h1>
+      <p class="subtitle">خلق لحظه‌های درخشان</p>
 
-        <div class="buttons-group">
-            <a href="https://instagram.com/hoorafarin_gallery" class="btn-instagram" target="_blank">
-                پیج اینستاگرام ما
-            </a>
-            <a href="https://wa.me/989120000000" class="btn-whatsapp" target="_blank">
-                سفارش در واتس‌اپ
-            </a>
+      <p class="description">
+        هورآفرین در گالری هورآفرین، قصه‌ای از نور و هنر است. با شمع‌های دست‌ساز و
+        گیفت‌های اختصاصی، گرما و زیبایی را به خانه‌تان هدیه می‌دهیم.
+      </p>
+
+      <div class="buttons">
+        <button class="btn btn-primary" id="enterBtn">ورود به گالری شمع</button>
+        <a class="btn btn-secondary" href="https://wa.me/989000000000" target="_blank" rel="noopener">
+          سفارش در واتس‌اپ
+        </a>
+      </div>
+    </section>
+
+    <section class="card content-card hidden" id="contentCard">
+      <h2 class="section-title">بخش‌های سایت</h2>
+
+      <div class="menu-grid">
+        <button class="menu-item" data-target="galleryBox">گالری شمع‌ها</button>
+        <button class="menu-item" data-target="orderBox">ثبت سفارش</button>
+        <button class="menu-item" data-target="aboutBox">درباره ما</button>
+      </div>
+
+      <div class="info-box hidden" id="galleryBox">
+        <h3>گالری شمع‌ها</h3>
+        <p>اینجا می‌توانی عکس محصولات، مدل‌ها و نمونه‌کارهای جدید را قرار بدهی.</p>
+      </div>
+
+      <div class="info-box hidden" id="orderBox">
+        <h3>ثبت سفارش</h3>
+        <p>برای ثبت سفارش، اطلاعات زیر را وارد کنید و از طریق واتس‌اپ ارسال کنید.</p>
+
+        <div class="form-grid">
+          <input type="text" id="name" placeholder="نام و نام خانوادگی" />
+          <input type="tel" id="phone" placeholder="شماره تماس" />
+          <textarea id="details" placeholder="نام محصول، تعداد و توضیحات"></textarea>
         </div>
-    </div>
+
+        <button class="btn btn-primary full" id="sendOrderBtn">ارسال سفارش</button>
+      </div>
+
+      <div class="info-box hidden" id="aboutBox">
+        <h3>درباره ما</h3>
+        <p>
+          گالری هورآفرین با تمرکز بر محصولات دست‌ساز، شمع‌های خاص و هدیه‌های
+          ساده و شیک برای لحظه‌های مهم شما ساخته شده است.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const enterBtn = document.getElementById('enterBtn');
+    const welcomeCard = document.getElementById('welcomeCard');
+    const contentCard = document.getElementById('contentCard');
+    const menuItems = document.querySelectorAll('.menu-item');
+    const infoBoxes = document.querySelectorAll('.info-box');
+    const sendOrderBtn = document.getElementById('sendOrderBtn');
+
+    enterBtn.addEventListener('click', () => {
+      welcomeCard.classList.add('hidden');
+      contentCard.classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    menuItems.forEach((item) => {
+      item.addEventListener('click', () => {
+        const targetId = item.dataset.target;
+        infoBoxes.forEach((box) => box.classList.add('hidden'));
+        document.getElementById(targetId).classList.remove('hidden');
+      });
+    });
+
+    sendOrderBtn?.addEventListener('click', () => {
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const details = document.getElementById('details').value.trim();
+
+      const message =
+        `سلام، سفارش جدید دارم:%0A` +
+        `نام: ${name || '-'}%0A` +
+        `شماره تماس: ${phone || '-'}%0A` +
+        `توضیحات: ${details || '-'}`;
+
+      window.open(`https://wa.me/989000000000?text=${message}`, '_blank');
+    });
+  </script>
 </body>
 </html>
