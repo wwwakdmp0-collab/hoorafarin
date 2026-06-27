@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,90 +8,66 @@
 </head>
 <body>
 
-    <div class="container">
-        <!-- صفحه خوش‌آمدگویی -->
-        <div class="card" id="welcomeCard">
-            <h1>به گالری هورآفرین خوش آمدید</h1>
-            <p>شمع‌های دست‌ساز و هدیه‌های خاص برای لحظات شما</p>
-            <button class="btn btn-primary" id="enterBtn">ورود به سایت</button>
+<div class="container" id="welcome-screen">
+    <h1>به گالری هورآفرین خوش آمدید</h1>
+    <p>شمع‌های دست‌ساز و هدیه‌های خاص برای لحظات شما</p>
+    
+    <button class="btn btn-primary" onclick="showOrderForm()">ثبت سفارش شمع</button>
+    <a href="https://wa.me/989123456789" class="btn" style="background: #e9edc9; color: #5e503f;">مشاهده کاتالوگ در واتس‌اپ</a>
+</div>
+
+<!-- بخش فرم سفارش که در ابتدا مخفی است -->
+<div class="container hidden" id="order-screen">
+    <h2 style="color: #5e503f;">فرم ثبت سفارش</h2>
+    <p>لطفاً جزئیات سفارش خود را وارد کنید</p>
+
+    <div class="order-section">
+        <div class="form-group">
+            <label>نام و نام خانوادگی</label>
+            <input type="text" id="name" placeholder="مثال: زهرا مرادی">
         </div>
 
-        <!-- محتوای اصلی سایت (در ابتدا مخفی) -->
-        <div class="card hidden" id="contentCard">
-            <nav class="menu">
-                <button class="menu-item active" onclick="showSection('orderBox')">ثبت سفارش</button>
-                <button class="menu-item" onclick="showSection('aboutBox')">درباره ما</button>
-            </nav>
-
-            <!-- بخش ثبت سفارش و پرداخت -->
-            <div class="info-box" id="orderBox">
-                <h3>ثبت سفارش و پرداخت آنلاین</h3>
-                <p>اطلاعات زیر را وارد کنید و روی دکمه پرداخت کلیک کنید.</p>
-                
-                <div class="form-grid">
-                    <input type="text" id="name" placeholder="نام و نام خانوادگی">
-                    <input type="tel" id="phone" placeholder="شماره تماس">
-                    <input type="number" id="amount" placeholder="مبلغ سفارش (تومان)">
-                    <textarea id="details" placeholder="نام محصول یا توضیحات"></textarea>
-                </div>
-
-                <button class="btn btn-primary full" id="payBtn">پرداخت آنلاین و ثبت نهایی</button>
-            </div>
-
-            <!-- بخش درباره ما -->
-            <div class="info-box hidden" id="aboutBox">
-                <h3>درباره ما</h3>
-                <p>هورآفرین با تمرکز بر محصولات دست‌ساز، شمع‌های خاص و هدیه‌های ساده و شیک برای لحظه‌های مهم شما ساخته شده است.</p>
-            </div>
+        <div class="form-group">
+            <label>شماره تماس</label>
+            <input type="tel" id="phone" placeholder="09123456789">
         </div>
+
+        <div class="form-group">
+            <label>نوع شمع</label>
+            <select id="candle-type">
+                <option value="aromatic">شمع عطری</option>
+                <option value="decorative">شمع تزئینی</option>
+                <option value="custom">سفارش اختصاصی (طرح دلخواه)</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>توضیحات (رنگ، سایز یا متن دلخواه)</label>
+            <textarea id="details" rows="3" placeholder="مثال: رنگ صورتی مات با عطر اسطوخودوس"></textarea>
+        </div>
+
+        <div style="background: rgba(212, 163, 115, 0.1); padding: 15px; border-radius: 15px; margin-bottom: 20px;">
+            <span style="font-size: 0.8rem;">مبلغ قابل پرداخت (تومانی):</span>
+            <div style="font-size: 1.2rem; font-weight: bold; color: #d4a373;">250,000 تومان</div>
+        </div>
+
+        <!-- بعد از گرفتن زرین لینک، آدرس آن را در قسمت href پایین قرار دهید -->
+        <a href="لینک-زرین-لینک-شما-اینجا" class="btn btn-primary">پرداخت آنلاین و ثبت نهایی</a>
+        <button onclick="showWelcome()" style="background:none; border:none; color:#8d99ae; cursor:pointer; margin-top:10px;">برگشت به صفحه قبل</button>
     </div>
+</div>
 
-    <script>
-        const enterBtn = document.getElementById('enterBtn');
-        const welcomeCard = document.getElementById('welcomeCard');
-        const contentCard = document.getElementById('contentCard');
+<script>
+    function showOrderForm() {
+        document.getElementById('welcome-screen').classList.add('hidden');
+        document.getElementById('order-screen').classList.remove('hidden');
+    }
 
-        // دکمه ورود به سایت
-        enterBtn.addEventListener('click', () => {
-            welcomeCard.classList.add('hidden');
-            contentCard.classList.remove('hidden');
-        });
+    function showWelcome() {
+        document.getElementById('order-screen').classList.add('hidden');
+        document.getElementById('welcome-screen').classList.remove('hidden');
+    }
+</script>
 
-        // تابع جابجایی بین منوها
-        function showSection(id) {
-            // مخفی کردن همه باکس‌ها
-            document.querySelectorAll('.info-box').forEach(box => {
-                box.classList.add('hidden');
-            });
-            // نمایش باکس کلیک شده
-            document.getElementById(id).classList.remove('hidden');
-            
-            // تغییر استایل دکمه‌های منو
-            document.querySelectorAll('.menu-item').forEach(item => {
-                item.classList.remove('active');
-            });
-            event.target.classList.add('active');
-        }
-
-        // کد مربوط به پرداخت
-        const payBtn = document.getElementById('payBtn');
-        payBtn.addEventListener('click', () => {
-            const name = document.getElementById('name').value;
-            const amount = document.getElementById('amount').value;
-            const phone = document.getElementById('phone').value;
-
-            if (!name || !amount || !phone) {
-                alert("لطفاً نام، شماره تماس و مبلغ را وارد کنید.");
-                return;
-            }
-
-            // فعلاً از لینک تستی استفاده شده، فردا لینک خودت را جایگزین کن
-            // به جای YourID، نام کاربری زرین‌پال خودت را بگذار
-            const zarinpalLink = `https://zarinp.al/YourID/${amount}`;
-            
-            // باز کردن درگاه پرداخت در تب جدید
-            window.open(zarinpalLink, '_blank');
-        });
-    </script>
 </body>
 </html>
