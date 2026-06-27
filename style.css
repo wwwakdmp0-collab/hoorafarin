@@ -1,56 +1,74 @@
-/* تعریف انیمیشن با سرعت بیشتر و رنگ نهایی شیک */
-@keyframes light-glow {
-    0% {
-        /* شروع با یک طلاییِ گرم و درخشان */
-        background: radial-gradient(circle, #ffdb58, #e67e22, #2c2c2c);
-    }
-    40% {
-        /* لحظه درخشش نوری (طلایی روشن) */
-        background: radial-gradient(circle, #fff4cc, #f7e1ad, #fcfaf2);
-    }
-    100% {
-        /* رنگ نهایی: کرم استخوانی بسیار لایت و لوکس */
-        background-color: #fcfaf2; 
-    }
-}
-
 body {
-    font-family: 'Tahoma', sans-serif;
     margin: 0;
     padding: 0;
-    /* زمان را به 2 ثانیه تغییر دادیم تا سریع‌تر اجرا شود */
-    animation: light-glow 2s ease-out forwards; 
-    color: #4a4a4a; /* رنگ متن را کمی خاکستری تیره کردیم که روی کرم زیباتر باشد */
-    min-height: 100vh;
+    background-color: #f7f3ed; 
+    font-family: Tahoma, Geneva, Verdana, sans-serif;
+    color: #4b4b4b;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
 }
 
-header, main {
-    opacity: 0;
-    /* محتوا حالا سریع‌تر (بعد از 1.5 ثانیه) ظاهر می‌شود */
-    animation: fade-in 1.5s ease-in 1.2s forwards;
+.container {
+    background-color: #ffffff;
+    padding: 35px 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    max-width: 90%;
+    width: 360px;
+    box-sizing: border-box;
 }
 
-@keyframes fade-in {
-    to { opacity: 1; }
+h1 {
+    font-size: 2em;
+    color: #b8860b;
+    margin-bottom: 5px;
 }
 
-/* استایل دکمه برای هماهنگی با رنگ جدید */
-button {
-    background-color: #c48e5a; /* یک قهوه‌ای-طلاییِ مات */
+h2 {
+    font-size: 1em;
+    color: #888;
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-weight: normal;
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.description {
+    margin-bottom: 25px;
+    line-height: 1.7;
+    font-size: 0.9em;
+}
+
+.buttons-group a {
+    display: block;
+    text-decoration: none;
     color: white;
-    border: none;
-    padding: 12px 30px;
-    border-radius: 50px; /* دکمه گردتر برای حس مدرن */
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
+    padding: 12px 20px;
+    margin: 10px 0;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 0.95em;
+    transition: opacity 0.3s;
 }
 
-button:hover {
-    background-color: #a67646;
-    transform: scale(1.05); /* یک افکت کوچک موقع نگه داشتن موس یا لمس */
+.btn-instagram {
+    background-color: #e4405f;
 }
- */
-  
+
+.btn-whatsapp {
+    background-color: #25d366;
+}
+
+.buttons-group a:hover {
+    opacity: 0.9;
+}
