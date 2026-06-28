@@ -1,80 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;400;700&display=swap');
-
-:root {
-    --primary-color: #d4a373; /* طلایی مات */
-    --accent-color: #e29578; /* رزگلد */
-    --bg-gradient: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
-    --glass-bg: rgba(255, 255, 255, 0.7);
+.gallery{
+text-align:center;
+padding:40px;
 }
 
-body {
-    font-family: 'Vazirmatn', sans-serif;
-    margin: 0;
-    direction: rtl;
-    background: var(--bg-gradient);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #4a4a4a;
+.product{
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(10px);
+border-radius:15px;
+padding:20px;
+margin:20px;
+display:inline-block;
+width:250px;
 }
 
-.container {
-    width: 90%;
-    max-width: 450px;
-    background: var(--glass-bg);
-    backdrop-filter: blur(15px); /* افکت مات کردن پشت باکس */
-    border-radius: 30px;
-    padding: 30px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+.product img{
+width:100%;
+border-radius:10px;
 }
 
-h1 { color: #5e503f; font-weight: 700; margin-bottom: 10px; }
-p { font-size: 0.9rem; color: #8d99ae; margin-bottom: 25px; }
-
-.btn {
-    display: block;
-    width: 100%;
-    padding: 15px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 15px;
-    font-family: 'Vazirmatn';
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-decoration: none;
-}
-
-.btn-primary {
-    background: var(--primary-color);
-    color: white;
-    box-shadow: 0 5px 15px rgba(212, 163, 115, 0.4);
-}
-
-.btn-primary:hover { transform: translateY(-2px); background: #bc8a5f; }
-
-.hidden { display: none; }
-
-/* استایل فرم */
-.form-group { text-align: right; margin-bottom: 15px; }
-label { display: block; margin-bottom: 5px; font-size: 0.85rem; color: #5e503f; margin-right: 5px; }
-input, select, textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid rgba(0,0,0,0.1);
-    border-radius: 12px;
-    background: rgba(255,255,255,0.5);
-    font-family: 'Vazirmatn';
-    box-sizing: border-box;
-}
-
-.order-section { margin-top: 20px; animation: fadeIn 0.5s ease; }
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+.buy-btn{
+display:inline-block;
+margin-top:10px;
+padding:10px 20px;
+background:#c9a27e;
+color:white;
+text-decoration:none;
+border-radius:8px;
 }
