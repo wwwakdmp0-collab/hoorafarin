@@ -3,160 +3,218 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>هورآفرین | گالری شمع لوکس</title>
+    <title>هورآفرین | گالری لوکس شمع</title>
+    <!-- فونت زیبای وزیر -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
     
     <style>
-        /* این بخش همان CSS است که پرسیدید کجا بگذارید */
         :root {
-            --gold: #d4af37;
-            --dark: #0a0a0a;
-            --glass: rgba(255, 255, 255, 0.05);
-            --border: rgba(255, 255, 255, 0.1);
+            --choco-dark: #1f1412;     /* شکلاتی خیلی تیره برای پس‌زمینه اصلی */
+            --choco-card: #2b1b17;     /* شکلاتی نرم برای کارت‌ها */
+            --caramel: #c68b59;        /* کاراملی گرم برای جزئیات و قیمت */
+            --cream-light: #f5e9da;    /* کرمی ملایم برای متن‌ها */
+            
+            /* رنگ‌های پاستیلی دکمه‌ها */
+            --pastel-mint: #cfe9d6;    /* سبز پاستیلی ملایم */
+            --pastel-blue: #c9dff5;    /* آبی پاستیلی ملایم */
+            --pastel-pink: #f3c6cf;    /* صورتی پاستیلی ملایم */
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+        }
 
-        body {
-            font-family: 'Vazirmatn', sans-serif;
-            background-color: var(--dark);
-            color: #e0e0e0;
-            direction: rtl;
+        body { 
+            font-family: 'Vazirmatn', sans-serif; 
+            background: linear-gradient(180deg, var(--choco-dark), #140d0c);
+            color: #fff; 
+            direction: rtl; 
+            min-height: 100vh;
+        }
+        
+        /* هدر شکلاتی کاراملی */
+        header { 
+            padding: 40px 20px; 
+            text-align: center; 
+            background: linear-gradient(135deg, #2b1b17, #1f1412); 
+            border-bottom: 3px solid var(--caramel); 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        }
+        header h1 { 
+            color: var(--caramel); 
+            font-size: 2.2rem; 
+            font-weight: 900;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+        header p { 
+            color: var(--cream-light); 
+            margin-top: 8px; 
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .main-container { 
+            max-width: 1200px; 
+            margin: 40px auto; 
+            padding: 0 20px; 
+        }
+
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+            gap: 30px; 
+        }
+
+        /* کارت‌های محصول لوکس */
+        .card { 
+            background: var(--choco-card); 
+            border-radius: 20px; 
+            overflow: hidden; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4); 
+            transition: transform 0.3s ease, border-color 0.3s ease; 
+            border: 1px solid rgba(198, 139, 89, 0.15); /* حاشیه کاراملی بسیار ملایم */
+            display: flex;
+            flex-direction: column;
+        }
+        .card:hover { 
+            transform: translateY(-8px); 
+            border-color: var(--caramel); 
+        }
+        .card img { 
+            width: 100%; 
+            height: 260px; 
+            object-fit: cover; 
+            border-bottom: 1px solid rgba(198, 139, 89, 0.1);
+        }
+        .card-content { 
+            padding: 20px; 
+            text-align: center; 
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        
+        .card-title { 
+            font-size: 1.25rem; 
+            color: #fff; 
+            margin-bottom: 8px; 
+            font-weight: 700;
+        }
+        .card-desc {
+            font-size: 0.85rem; 
+            color: #d1c2bd; 
+            margin-bottom: 15px;
             line-height: 1.6;
+            flex-grow: 1;
+        }
+        .card-price { 
+            color: var(--caramel); 
+            font-weight: 800; 
+            font-size: 1.4rem; 
+            display: block; 
+            margin-bottom: 20px; 
         }
 
-        header {
-            height: 30vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.8), var(--dark)), 
-                        url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
-            border-bottom: 1px solid var(--gold);
-            padding: 20px;
+        /* دکمه‌های ۳ گانه با استایل پاستیلی */
+        .btn-group { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 10px; 
+        }
+        .btn { 
+            display: block; 
+            padding: 12px; 
+            border-radius: 14px; 
+            text-decoration: none; 
+            font-size: 0.9rem; 
+            font-weight: bold; 
+            transition: all 0.25s ease; 
+            text-align: center; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        
+        /* دکمه درگاه پرداخت (سبز پاستیلی) */
+        .btn-pay { 
+            background: var(--pastel-mint); 
+            color: #1c3a2a; 
+        }
+        /* دکمه روبیکا (آبی پاستیلی) */
+        .btn-rubika { 
+            background: var(--pastel-blue); 
+            color: #1a3550; 
+        }
+        /* دکمه اینستاگرام (صورتی پاستیلی) */
+        .btn-insta { 
+            background: var(--pastel-pink); 
+            color: #5a2333; 
         }
 
-        header h1 { color: var(--gold); font-size: 2.2rem; margin-bottom: 5px; }
-
-        .main-container {
-            max-width: 1200px;
-            margin: 30px auto;
-            padding: 0 15px;
+        .btn:hover { 
+            transform: scale(1.03); 
+            opacity: 0.95; 
+            box-shadow: 0 6px 15px rgba(0,0,0,0.25);
         }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
+        #loading-msg { 
+            text-align: center; 
+            padding: 60px; 
+            color: var(--caramel); 
+            font-size: 1.2rem;
         }
-
-        .card {
-            background: var(--glass);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-            transition: 0.3s;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card:hover { transform: translateY(-5px); border-color: var(--gold); }
-
-        .card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-
-        .card-content { padding: 15px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
-
-        .card-title { font-size: 1.1rem; margin-bottom: 8px; color: #fff; }
-
-        .card-price { color: var(--gold); font-weight: bold; font-size: 1.2rem; display: block; margin-bottom: 15px; }
-
-        .btn {
-            display: block;
-            background: var(--gold);
-            color: #000;
-            padding: 10px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .btn:hover { background: #fff; }
-
-        #loading-msg { text-align: center; padding: 50px; color: var(--gold); }
     </style>
 </head>
 <body>
 
 <header>
     <h1>گالری هورآفرین</h1>
-    <p>روشنایی به سبک هنر دست</p>
+    <p>روشنایی به سبک هنر دست | ثبت سفارش آسان</p>
 </header>
 
 <div class="main-container">
-    <div id="loading-msg">در حال دریافت محصولات از لیست شما...</div>
+    <div id="loading-msg">در حال بارگذاری زیباترین شمع‌ها...</div>
     <div class="grid" id="product-grid"></div>
 </div>
 
 <script>
-    // اتصال به گوگل شیت شما
+    // آی‌دی گوگل شیت شما
     const sheetId = '155dRNylDKiraQQjhSR4kIRvi0-hpcj4ThitpcyDn16k';
     const csvUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv`;
+
+    // تابع کمکی برای بررسی معتبر بودن لینک‌ها در گوگل شیت
+    function isValidLink(link) {
+        return link && link !== '#' && link !== '""' && link.trim() !== '';
+    }
 
     async function loadProducts() {
         try {
             const response = await fetch(csvUrl);
             const data = await response.text();
-            
-            // جدا کردن خطوط CSV
             const lines = data.split('\n');
             const grid = document.getElementById('product-grid');
-            const loader = document.getElementById('loading-msg');
-            
-            loader.style.display = 'none';
+            document.getElementById('loading-msg').style.display = 'none';
 
-            // شروع از ردیف دوم (ایندکس 1) برای نادیده گرفتن سرتیترها
             for (let i = 1; i < lines.length; i++) {
+                // جدا کردن ستون‌ها با در نظر گرفتن کاما داخل نقل قول‌ها
                 const p = lines[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
-                if (p.length >= 2) {
-                    const title = p[0]?.replace(/"/g, '') || 'محصول جدید';
-                    const price = p[1]?.replace(/"/g, '') || 'تماس بگیرید';
-                    const img = p[2]?.replace(/"/g, '') || 'https://via.placeholder.com/300';
-                    const link = p[3]?.replace(/"/g, '') || '#';
-                    const desc = p[4]?.replace(/"/g, '') || '';
+                if (p.length >= 3) {
+                    const title = p[0] ? p[0].replace(/^"|"$/g, '').trim() : 'شمع زیبا';
+                    const price = p[1] ? p[1].replace(/^"|"$/g, '').trim() : '۰';
+                    const img = p[2] ? p[2].replace(/^"|"$/g, '').trim() : '';
+                    const rubika = p[3] ? p[3].replace(/^"|"$/g, '').trim() : '';
+                    const instagram = p[4] ? p[4].replace(/^"|"$/g, '').trim() : '';
+                    const pay = p[5] ? p[5].replace(/^"|"$/g, '').trim() : '';
+                    const desc = p[6] ? p[6].replace(/^"|"$/g, '').trim() : '';
 
-                    const cardHtml = `
-                        <div class="card">
-                            <img src="${img}" alt="${title}" onerror="this.src='https://via.placeholder.com/300?text=بدون+تصویر'">
-                            <div class="card-content">
-                                <div>
-                                    <h2 class="card-title">${title}</h2>
-                                    <p style="font-size: 0.8rem; color: #aaa; margin-bottom: 10px;">${desc}</p>
-                                </div>
-                                <div>
-                                    <span class="card-price">${price} تومان</span>
-                                    <a href="${link}" class="btn">خرید آنلاین</a>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                    grid.innerHTML += cardHtml;
-                }
-            }
-        } catch (e) {
-            document.getElementById('loading-msg').innerText = "خطا! لطفاً دسترسی لینک گوگل شیت را چک کنید.";
-        }
-    }
-
-    loadProducts();
-</script>
-
-</body>
-</html>
+                    // ساخت هوشمند دکمه‌ها (اگر لینکی در شیت خالی باشد، آن دکمه مخفی می‌شود)
+                    let buttonsHtml = '';
+                    
+                    if (isValidLink(pay)) {
+                        buttonsHtml += `<a href="${pay}" target="_blank" class="btn btn-pay">💳 پرداخت آنلاین (درگاه)</a>`;
+                    }
+                    if (isValidLink(rubika)) {
+                        buttonsHtml += `<a href="${rubika}" target="_blank" class="btn btn-rubika">💬 سفارش در روبیکا</a>`;
+                    }
+                    if (isValidLink(instagram)) {
+                        buttonsHtml += ......
