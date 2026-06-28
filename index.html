@@ -3,136 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>گالری لوکس هورآفرین</title>
+    <title>هورآفرین | گالری شمع لوکس</title>
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+    
     <style>
+        /* این بخش همان CSS است که پرسیدید کجا بگذارید */
         :root {
-            --primary: #d4af37; /* طلایی لوکس */
-            --bg: #0f0f0f;
-            --card-bg: rgba(255, 255, 255, 0.05);
+            --gold: #d4af37;
+            --dark: #0a0a0a;
+            --glass: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
         }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: 'Vazirmatn', sans-serif;
-            background-color: var(--bg);
-            color: white;
-            margin: 0;
-            padding: 0;
+            background-color: var(--dark);
+            color: #e0e0e0;
+            direction: rtl;
             line-height: 1.6;
         }
 
         header {
+            height: 30vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            padding: 50px 20px;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            border-bottom: 2px solid var(--primary);
-        }
-
-        h1 { color: var(--primary); font-size: 2.5rem; margin-bottom: 10px; }
-
-        .container {
-            max-width: 1100px;
-            margin: 40px auto;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.8), var(--dark)), 
+                        url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+            border-bottom: 1px solid var(--gold);
             padding: 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
         }
 
-        .product-card {
-            background: var(--card-bg);
+        header h1 { color: var(--gold); font-size: 2.2rem; margin-bottom: 5px; }
+
+        .main-container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 15px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--glass);
+            border: 1px solid var(--border);
             border-radius: 20px;
             overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.1);
             backdrop-filter: blur(10px);
-            transition: transform 0.3s ease;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
         }
 
-        .product-card:hover { transform: translateY(-10px); border-color: var(--primary); }
+        .card:hover { transform: translateY(-5px); border-color: var(--gold); }
 
-        .product-card img {
+        .card img {
             width: 100%;
             height: 250px;
             object-fit: cover;
         }
 
-        .product-info { padding: 20px; text-align: center; }
+        .card-content { padding: 15px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
 
-        .price { color: var(--primary); font-weight: bold; font-size: 1.2rem; display: block; margin: 10px 0; }
+        .card-title { font-size: 1.1rem; margin-bottom: 8px; color: #fff; }
 
-        .buy-btn {
-            display: inline-block;
-            background: var(--primary);
-            color: black;
-            padding: 10px 25px;
-            border-radius: 50px;
+        .card-price { color: var(--gold); font-weight: bold; font-size: 1.2rem; display: block; margin-bottom: 15px; }
+
+        .btn {
+            display: block;
+            background: var(--gold);
+            color: #000;
+            padding: 10px;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: bold;
-            margin-top: 15px;
             transition: 0.3s;
         }
 
-        .buy-btn:hover { background: white; }
+        .btn:hover { background: #fff; }
 
-        #loading { text-align: center; font-size: 1.2rem; color: var(--primary); padding: 50px; }
+        #loading-msg { text-align: center; padding: 50px; color: var(--gold); }
     </style>
 </head>
 <body>
 
 <header>
     <h1>گالری هورآفرین</h1>
-    <p>تولیدکننده شمع‌های دست‌ساز و تزئینی لوکس</p>
+    <p>روشنایی به سبک هنر دست</p>
 </header>
 
-<div id="loading">در حال بارگذاری محصولات زیبا...</div>
-<div class="container" id="product-container"></div>
+<div class="main-container">
+    <div id="loading-msg">در حال دریافت محصولات از لیست شما...</div>
+    <div class="grid" id="product-grid"></div>
+</div>
 
 <script>
-    // لینک گوگل شیت شما که به فرمت CSV تبدیل شده
+    // اتصال به گوگل شیت شما
     const sheetId = '155dRNylDKiraQQjhSR4kIRvi0-hpcj4ThitpcyDn16k';
-    const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv`;
+    const csvUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv`;
 
-    async function fetchProducts() {
+    async function loadProducts() {
         try {
-            const response = await fetch(url);
+            const response = await fetch(csvUrl);
             const data = await response.text();
             
-            // تبدیل CSV به آرایه
-            const rows = data.split('\n').slice(1); // حذف ردیف اول (عنوان‌ها)
-            const container = document.getElementById('product-container');
-            document.getElementById('loading').style.display = 'none';
+            // جدا کردن خطوط CSV
+            const lines = data.split('\n');
+            const grid = document.getElementById('product-grid');
+            const loader = document.getElementById('loading-msg');
+            
+            loader.style.display = 'none';
 
-            rows.forEach(row => {
-                const cols = row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/); // جدا کردن ستون‌ها با رعایت کوتیشن
-                if (cols.length >= 4) {
-                    const title = cols[0].replace(/"/g, '');
-                    const price = cols[1].replace(/"/g, '');
-                    const image = cols[2].replace(/"/g, '');
-                    const link = cols[3].replace(/"/g, '');
-                    const desc = cols[4] ? cols[4].replace(/"/g, '') : '';
+            // شروع از ردیف دوم (ایندکس 1) برای نادیده گرفتن سرتیترها
+            for (let i = 1; i < lines.length; i++) {
+                const p = lines[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
+                if (p.length >= 2) {
+                    const title = p[0]?.replace(/"/g, '') || 'محصول جدید';
+                    const price = p[1]?.replace(/"/g, '') || 'تماس بگیرید';
+                    const img = p[2]?.replace(/"/g, '') || 'https://via.placeholder.com/300';
+                    const link = p[3]?.replace(/"/g, '') || '#';
+                    const desc = p[4]?.replace(/"/g, '') || '';
 
-                    const card = `
-                        <div class="product-card">
-                            <img src="${image}" alt="${title}" onerror="this.src='https://via.placeholder.com/300?text=No+Image'">
-                            <div class="product-info">
-                                <h3>${title}</h3>
-                                <p style="font-size: 0.9rem; color: #ccc;">${desc}</p>
-                                <span class="price">${price} تومان</span>
-                                <a href="${link}" class="buy-btn">سفارش و خرید</a>
+                    const cardHtml = `
+                        <div class="card">
+                            <img src="${img}" alt="${title}" onerror="this.src='https://via.placeholder.com/300?text=بدون+تصویر'">
+                            <div class="card-content">
+                                <div>
+                                    <h2 class="card-title">${title}</h2>
+                                    <p style="font-size: 0.8rem; color: #aaa; margin-bottom: 10px;">${desc}</p>
+                                </div>
+                                <div>
+                                    <span class="card-price">${price} تومان</span>
+                                    <a href="${link}" class="btn">خرید آنلاین</a>
+                                </div>
                             </div>
                         </div>
                     `;
-                    container.innerHTML += card;
+                    grid.innerHTML += cardHtml;
                 }
-            });
-        } catch (error) {
-            console.error('خطا در دریافت اطلاعات:', error);
-            document.getElementById('loading').innerText = 'خطا در بارگذاری. لطفاً اینترنت خود را چک کنید.';
+            }
+        } catch (e) {
+            document.getElementById('loading-msg').innerText = "خطا! لطفاً دسترسی لینک گوگل شیت را چک کنید.";
         }
     }
 
-    fetchProducts();
+    loadProducts();
 </script>
 
 </body>
