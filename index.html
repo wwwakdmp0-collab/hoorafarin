@@ -3,14 +3,17 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>گالری هور آفرین | شمع و گیفت دست‌ساز</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>گالری هور آفرین | شمع و گیفت</title>
 
     <meta name="description"
-        content="گالری هور آفرین؛ مجموعه‌ای از شمع‌های دست‌ساز و گیفت‌های خاص برای لحظه‌های ماندگار.">
+          content="گالری هور آفرین؛ شمع‌های دست‌ساز و گیفت‌های خاص برای لحظه‌های ماندگار.">
 
-    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css"
+    <link
+        href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css"
         rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
@@ -18,693 +21,1791 @@
 
 <body>
 
-    <!-- =========================
-         صفحه ورود
-    ========================== -->
 
-    <section id="welcome" class="welcome-section">
+<!-- =====================================================
+     صفحه ورود
+===================================================== -->
 
-        <div class="welcome-light"></div>
+<section id="welcome" class="welcome-section">
 
-        <div class="welcome-content">
+    <div class="welcome-light"></div>
 
-            <div class="brand-symbol">
-                ✦
-            </div>
+    <div class="welcome-content">
 
-            <p class="welcome-small">
-                به دنیای هور آفرین خوش آمدید
-            </p>
+        <div class="brand-symbol">
+            ✦
+        </div>
 
-            <h1>
-                هور آفرین
-            </h1>
+        <p class="welcome-small">
+            به دنیای هور آفرین خوش آمدید
+        </p>
 
-            <div class="gold-line"></div>
+        <h1>
+            هور آفرین
+        </h1>
 
-            <h2>
-                هنرِ نور، برای لحظه‌های ماندگار
-            </h2>
+        <div class="gold-line"></div>
 
-            <p class="welcome-description">
-                مجموعه‌ای از شمع‌های دست‌ساز و گیفت‌های خاص،
-                ساخته‌شده برای زیباتر کردن لحظه‌های شما.
-            </p>
+        <h2>
+            هنرِ نور، برای لحظه‌های ماندگار
+        </h2>
 
-            <button class="enter-button" onclick="enterGallery()">
-                ورود به گالری
-                <span>✦</span>
-            </button>
+        <p class="welcome-description">
+            مجموعه‌ای از شمع‌های دست‌ساز و گیفت‌های خاص،
+            ساخته‌شده برای زیباتر کردن لحظه‌های شما.
+        </p>
 
-            <div class="welcome-links">
-                <a href="#about">درباره ما</a>
-                <span>•</span>
-                <a href="#order">نحوه سفارش</a>
-                <span>•</span>
-                <a href="#contact">تماس با ما</a>
-            </div>
+        <button
+            class="enter-button"
+            onclick="enterGallery()">
+
+            ورود به گالری
+            <span>✦</span>
+
+        </button>
+
+        <div class="welcome-links">
+
+            <a href="#about">
+                درباره ما
+            </a>
+
+            <span>•</span>
+
+            <a href="#order">
+                نحوه سفارش
+            </a>
+
+            <span>•</span>
+
+            <a href="#contact">
+                تماس با ما
+            </a>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- =========================
-         سایت اصلی
-    ========================== -->
 
-    <div id="main-site" class="main-site">
+<!-- =====================================================
+     سایت اصلی
+===================================================== -->
 
-        <!-- هدر -->
+<div id="main-site" class="main-site">
 
-        <header class="site-header">
 
-            <div class="header-inner">
+    <!-- =================================================
+         Header
+    ================================================== -->
 
-                <a href="#home" class="logo">
-                    <span>✦</span>
-                    هور آفرین
+    <header class="site-header">
+
+        <div class="header-inner">
+
+            <a href="#home"
+               class="logo">
+
+                <span>✦</span>
+                هور آفرین
+
+            </a>
+
+
+            <nav class="main-nav">
+
+                <a href="#home">
+                    خانه
                 </a>
 
-                <nav class="main-nav">
+                <a href="#products">
+                    محصولات
+                </a>
 
-                    <a href="#home">خانه</a>
+                <a href="#discounts">
+                    تخفیف‌ها
+                </a>
 
-                    <a href="#products">محصولات</a>
+                <a href="#about">
+                    درباره ما
+                </a>
 
-                    <a href="#discounts">تخفیف‌ها</a>
+                <a href="#order">
+                    نحوه سفارش
+                </a>
 
-                    <a href="#about">درباره ما</a>
+                <a href="#contact">
+                    تماس
+                </a>
 
-                    <a href="#order">نحوه سفارش</a>
+            </nav>
 
-                    <a href="#contact">تماس</a>
 
-                </nav>
+            <!-- سبد خرید -->
 
-                <button class="mobile-menu-button" onclick="toggleMenu()">
-                    ☰
-                </button>
+            <button
+                class="cart-button"
+                onclick="openCart()">
+
+                🛒
+
+                <span id="cart-count">
+                    0
+                </span>
+
+            </button>
+
+
+            <button
+                class="mobile-menu-button"
+                onclick="toggleMenu()">
+
+                ☰
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =================================================
+         Main
+    ================================================== -->
+
+    <main id="home">
+
+
+        <!-- =================================================
+             Hero
+        ================================================== -->
+
+        <section class="hero-section">
+
+            <div class="hero-content">
+
+                <span class="hero-label">
+                    گالری هور آفرین
+                </span>
+
+                <h1>
+                    روشنایی را
+                    <br>
+                    با عشق هدیه دهید
+                </h1>
+
+                <p>
+                    شمع‌های دست‌ساز و گیفت‌های خاص
+                    برای ساختن خاطره‌هایی که ماندگار می‌شوند.
+                </p>
+
+                <a
+                    href="#products"
+                    class="gold-button">
+
+                    مشاهده محصولات
+
+                </a>
 
             </div>
 
-        </header>
 
+            <div class="hero-decoration">
+                🕯️
+            </div>
 
-        <!-- =========================
-             صفحه اصلی
-        ========================== -->
+        </section>
 
-        <main id="home">
 
-            <section class="hero-section">
 
-                <div class="hero-content">
+        <!-- =================================================
+             تخفیف
+        ================================================== -->
 
-                    <span class="hero-label">
-                        گالری هور آفرین
-                    </span>
+        <section
+            id="discounts"
+            class="discount-section">
 
-                    <h1>
-                        روشنایی را
-                        <br>
-                        با عشق هدیه دهید
-                    </h1>
+            <div class="discount-content">
 
-                    <p>
-                        شمع‌های دست‌ساز و گیفت‌های خاص
-                        برای ساختن خاطره‌هایی که ماندگار می‌شوند.
-                    </p>
-
-                    <a href="#products" class="gold-button">
-                        مشاهده محصولات
-                    </a>
-
-                </div>
-
-                <div class="hero-decoration">
-                    🕯️
-                </div>
-
-            </section>
-
-
-            <!-- =========================
-                 تخفیف ویژه
-            ========================== -->
-
-            <section id="discounts" class="discount-section">
-
-                <div class="discount-content">
-
-                    <span>
-                        پیشنهاد ویژه
-                    </span>
-
-                    <h2>
-                        لحظه‌ای برای انتخاب خاص
-                    </h2>
-
-                    <p>
-                        بعضی از محصولات منتخب هور آفرین
-                        با قیمت ویژه در اختیار شما هستند.
-                    </p>
-
-                    <a href="#products" class="outline-button">
-                        مشاهده تخفیف‌ها
-                    </a>
-
-                </div>
-
-                <div class="discount-symbol">
-                    ✦
-                </div>
-
-            </section>
-
-
-            <!-- =========================
-                 دسته‌بندی
-            ========================== -->
-
-            <section class="categories-section">
-
-                <div class="section-heading">
-
-                    <span>
-                        مجموعه هور آفرین
-                    </span>
-
-                    <h2>
-                        برای هر لحظه، یک انتخاب
-                    </h2>
-
-                </div>
-
-                <div class="categories-grid">
-
-                    <a href="#products" class="category-card">
-                        <span>🕯️</span>
-                        <h3>شمع‌ها</h3>
-                        <p>شمع‌های دست‌ساز و خاص</p>
-                    </a>
-
-                    <a href="#products" class="category-card">
-                        <span>🎁</span>
-                        <h3>گیفت‌ها</h3>
-                        <p>هدیه‌هایی برای عزیزان</p>
-                    </a>
-
-                    <a href="#products" class="category-card">
-                        <span>💝</span>
-                        <h3>مناسبتی</h3>
-                        <p>برای لحظه‌های خاص</p>
-                    </a>
-
-                    <a href="#products" class="category-card">
-                        <span>✦</span>
-                        <h3>ست‌های ویژه</h3>
-                        <p>انتخاب‌های خاص و متفاوت</p>
-                    </a>
-
-                </div>
-
-            </section>
-
-
-            <!-- =========================
-                 محصولات
-            ========================== -->
-
-            <section id="products" class="products-section">
-
-                <div class="section-heading">
-
-                    <span>
-                        فروشگاه هور آفرین
-                    </span>
-
-                    <h2>
-                        محصولات ما
-                    </h2>
-
-                    <p>
-                        محصول مورد علاقه خود را انتخاب کنید.
-                    </p>
-
-                </div>
-
-                <div id="loading-msg">
-                    در حال آماده‌سازی گالری...
-                </div>
-
-                <div class="products-grid" id="product-grid"></div>
-
-            </section>
-
-
-            <!-- =========================
-                 درباره ما
-            ========================== -->
-
-            <section id="about" class="about-section">
-
-                <div class="about-content">
-
-                    <span>
-                        درباره هور آفرین
-                    </span>
-
-                    <h2>
-                        جایی برای هنر،
-                        نور و عشق
-                    </h2>
-
-                    <p>
-                        هور آفرین با عشق به هنر دست و زیبایی شکل گرفته است.
-                        ما تلاش می‌کنیم شمع‌ها و گیفت‌هایی خلق کنیم
-                        که فقط یک محصول نباشند؛ بلکه بخشی از یک خاطره زیبا باشند.
-                    </p>
-
-                    <p>
-                        هر انتخاب شما برای ما ارزشمند است و تلاش می‌کنیم
-                        تجربه‌ای زیبا، ساده و مطمئن برایتان بسازیم.
-                    </p>
-
-                </div>
-
-            </section>
-
-
-            <!-- =========================
-                 نحوه سفارش
-            ========================== -->
-
-            <section id="order" class="order-section">
-
-                <div class="section-heading">
-
-                    <span>
-                        راهنمای خرید
-                    </span>
-
-                    <h2>
-                        نحوه سفارش
-                    </h2>
-
-                </div>
-
-                <div class="order-steps">
-
-                    <div class="order-step">
-
-                        <span>01</span>
-
-                        <h3>
-                            انتخاب محصول
-                        </h3>
-
-                        <p>
-                            محصول مورد نظر خود را از گالری انتخاب کنید.
-                        </p>
-
-                    </div>
-
-                    <div class="order-step">
-
-                        <span>02</span>
-
-                        <h3>
-                            بررسی اطلاعات
-                        </h3>
-
-                        <p>
-                            تصاویر، توضیحات و قیمت محصول را بررسی کنید.
-                        </p>
-
-                    </div>
-
-                    <div class="order-step">
-
-                        <span>03</span>
-
-                        <h3>
-                            ثبت سفارش
-                        </h3>
-
-                        <p>
-                            از طریق روش‌های سفارش موجود اقدام کنید.
-                        </p>
-
-                    </div>
-
-                    <div class="order-step">
-
-                        <span>04</span>
-
-                        <h3>
-                            دریافت سفارش
-                        </h3>
-
-                        <p>
-                            سفارش شما آماده و برایتان ارسال می‌شود.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            <!-- =========================
-                 تماس
-            ========================== -->
-
-            <section id="contact" class="contact-section">
-
-                <div class="contact-content">
-
-                    <span>
-                        ارتباط با ما
-                    </span>
-
-                    <h2>
-                        با هور آفرین در ارتباط باشید
-                    </h2>
-
-                    <p>
-                        برای ثبت سفارش، مشاوره یا دریافت اطلاعات بیشتر
-                        با ما تماس بگیرید.
-                    </p>
-
-                    <a href="tel:09139095651" class="phone-button">
-                        📞 ۰۹۱۳۹۰۹۵۶۵۱
-                    </a>
-
-                </div>
-
-            </section>
-
-        </main>
-
-
-        <!-- =========================
-             فوتر
-        ========================== -->
-
-        <footer class="site-footer">
-
-            <div class="footer-brand">
+                <span>
+                    ✦ پیشنهاد ویژه هور آفرین ✦
+                </span>
 
                 <h2>
-                    ✦ هور آفرین
+                    انتخاب خاص، با قیمت ویژه
                 </h2>
 
                 <p>
-                    هنرِ نور، برای لحظه‌های ماندگار
+                    محصولات منتخب با تخفیف ویژه
+                    در انتظار شما هستند.
+                </p>
+
+                <a
+                    href="#products"
+                    class="outline-button">
+
+                    مشاهده محصولات
+
+                </a>
+
+            </div>
+
+
+            <div class="discount-symbol">
+                ✦
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             دسته بندی
+        ================================================== -->
+
+        <section class="categories-section">
+
+            <div class="section-heading">
+
+                <span>
+                    مجموعه هور آفرین
+                </span>
+
+                <h2>
+                    برای هر لحظه، یک انتخاب
+                </h2>
+
+            </div>
+
+
+            <div class="categories-grid">
+
+                <a
+                    href="#products"
+                    class="category-card">
+
+                    <span>🕯️</span>
+
+                    <h3>
+                        شمع‌ها
+                    </h3>
+
+                    <p>
+                        شمع‌های دست‌ساز و خاص
+                    </p>
+
+                </a>
+
+
+                <a
+                    href="#products"
+                    class="category-card">
+
+                    <span>🎁</span>
+
+                    <h3>
+                        گیفت‌ها
+                    </h3>
+
+                    <p>
+                        هدیه‌هایی برای عزیزان
+                    </p>
+
+                </a>
+
+
+                <a
+                    href="#products"
+                    class="category-card">
+
+                    <span>💝</span>
+
+                    <h3>
+                        مناسبتی
+                    </h3>
+
+                    <p>
+                        برای لحظه‌های خاص
+                    </p>
+
+                </a>
+
+
+                <a
+                    href="#products"
+                    class="category-card">
+
+                    <span>✦</span>
+
+                    <h3>
+                        ست‌های ویژه
+                    </h3>
+
+                    <p>
+                        انتخاب‌های خاص و متفاوت
+                    </p>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             محصولات
+        ================================================== -->
+
+        <section
+            id="products"
+            class="products-section">
+
+            <div class="section-heading">
+
+                <span>
+                    فروشگاه هور آفرین
+                </span>
+
+                <h2>
+                    محصولات ما
+                </h2>
+
+                <p>
+                    محصول مورد علاقه خود را انتخاب کنید.
                 </p>
 
             </div>
 
-            <div class="footer-links">
 
-                <a href="#products">محصولات</a>
+            <div id="loading-msg">
 
-                <a href="#discounts">تخفیف‌ها</a>
-
-                <a href="#about">درباره ما</a>
-
-                <a href="#order">نحوه سفارش</a>
-
-                <a href="#contact">تماس با ما</a>
+                در حال آماده‌سازی گالری...
 
             </div>
 
-            <div class="footer-contact">
 
-                <a href="tel:09139095651">
-                    📞 ۰۹۱۳۹۰۹۵۶۵۱
+            <div
+                class="products-grid"
+                id="product-grid">
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             درباره ما
+        ================================================== -->
+
+        <section
+            id="about"
+            class="about-section">
+
+            <div class="about-content">
+
+                <span>
+                    درباره هور آفرین
+                </span>
+
+                <h2>
+                    جایی برای هنر،
+                    نور و عشق
+                </h2>
+
+                <p>
+                    هور آفرین با عشق به هنر دست و زیبایی
+                    شکل گرفته است.
+                    ما تلاش می‌کنیم شمع‌ها و گیفت‌هایی خلق کنیم
+                    که فقط یک محصول نباشند؛
+                    بلکه بخشی از یک خاطره زیبا باشند.
+                </p>
+
+                <p>
+                    هر انتخاب شما برای ما ارزشمند است
+                    و تلاش می‌کنیم تجربه‌ای زیبا،
+                    ساده و مطمئن برایتان بسازیم.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             نحوه سفارش
+        ================================================== -->
+
+        <section
+            id="order"
+            class="order-section">
+
+            <div class="section-heading">
+
+                <span>
+                    راهنمای خرید
+                </span>
+
+                <h2>
+                    نحوه سفارش
+                </h2>
+
+            </div>
+
+
+            <div class="order-steps">
+
+
+                <div class="order-step">
+
+                    <span>
+                        01
+                    </span>
+
+                    <h3>
+                        انتخاب محصول
+                    </h3>
+
+                    <p>
+                        محصول مورد نظر خود را
+                        از گالری انتخاب کنید.
+                    </p>
+
+                </div>
+
+
+                <div class="order-step">
+
+                    <span>
+                        02
+                    </span>
+
+                    <h3>
+                        انتخاب تعداد
+                    </h3>
+
+                    <p>
+                        تعداد محصول مورد نظر خود را
+                        با دکمه‌های + و − مشخص کنید.
+                    </p>
+
+                </div>
+
+
+                <div class="order-step">
+
+                    <span>
+                        03
+                    </span>
+
+                    <h3>
+                        ثبت اطلاعات
+                    </h3>
+
+                    <p>
+                        اطلاعات ارسال خود را
+                        با دقت وارد کنید.
+                    </p>
+
+                </div>
+
+
+                <div class="order-step">
+
+                    <span>
+                        04
+                    </span>
+
+                    <h3>
+                        دریافت سفارش
+                    </h3>
+
+                    <p>
+                        سفارش شما آماده و
+                        برایتان ارسال خواهد شد.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             تماس
+        ================================================== -->
+
+        <section
+            id="contact"
+            class="contact-section">
+
+            <div class="contact-content">
+
+                <span>
+                    ارتباط با ما
+                </span>
+
+                <h2>
+                    با هور آفرین در ارتباط باشید
+                </h2>
+
+                <p>
+                    برای ثبت سفارش، مشاوره یا دریافت
+                    اطلاعات بیشتر با ما تماس بگیرید.
+                </p>
+
+
+                <a
+                    href="tel:09139095651"
+                    class="phone-button">
+
+                    📞
+                    ۰۹۱۳۹۰۹۵۶۵۱
+
                 </a>
 
             </div>
 
-            <div class="footer-bottom">
+        </section>
 
-                © ۱۴۰۵ گالری هور آفرین
-                <br>
-                تمامی حقوق محفوظ است.
 
-            </div>
+    </main>
 
-        </footer>
+
+
+    <!-- =================================================
+         Footer
+    ================================================== -->
+
+    <footer class="site-footer">
+
+        <div class="footer-brand">
+
+            <h2>
+                ✦ هور آفرین
+            </h2>
+
+            <p>
+                هنرِ نور، برای لحظه‌های ماندگار
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="#products">
+                محصولات
+            </a>
+
+            <a href="#discounts">
+                تخفیف‌ها
+            </a>
+
+            <a href="#about">
+                درباره ما
+            </a>
+
+            <a href="#order">
+                نحوه سفارش
+            </a>
+
+            <a href="#contact">
+                تماس با ما
+            </a>
+
+        </div>
+
+
+        <div class="footer-contact">
+
+            <a href="tel:09139095651">
+                📞 ۰۹۱۳۹۰۹۵۶۵۱
+            </a>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            © ۱۴۰۵ گالری هور آفرین
+
+            <br>
+
+            تمامی حقوق محفوظ است.
+
+        </div>
+
+    </footer>
+
+</div>
+
+
+
+<!-- =====================================================
+     سبد خرید
+===================================================== -->
+
+<div
+    id="cart-modal"
+    class="modal-overlay">
+
+    <div class="cart-modal">
+
+
+        <button
+            class="close-modal"
+            onclick="closeCart()">
+
+            ×
+
+        </button>
+
+
+        <h2>
+            سبد خرید
+        </h2>
+
+
+        <div id="cart-items">
+
+        </div>
+
+
+        <div class="cart-total">
+
+            <span>
+                مبلغ کل
+            </span>
+
+            <strong id="cart-total-price">
+                ۰ تومان
+            </strong>
+
+        </div>
+
+
+        <button
+            class="checkout-button"
+            onclick="openCheckout()">
+
+            ادامه ثبت سفارش
+
+        </button>
 
     </div>
 
+</div>
 
-    <!-- =========================
-         JavaScript
-    ========================== -->
 
-    <script>
 
-        /* ورود به گالری */
+<!-- =====================================================
+     ثبت سفارش
+===================================================== -->
 
-        function enterGallery() {
+<div
+    id="checkout-modal"
+    class="modal-overlay">
 
-            document.getElementById("welcome").classList.add("hide");
+    <div class="checkout-modal">
 
-            setTimeout(function () {
 
-                document.getElementById("welcome").style.display = "none";
+        <button
+            class="close-modal"
+            onclick="closeCheckout()">
 
-                document.getElementById("main-site").classList.add("show");
+            ×
 
-                window.scrollTo(0, 0);
+        </button>
 
-            }, 500);
+
+        <h2>
+            ثبت سفارش
+        </h2>
+
+
+        <p class="checkout-description">
+
+            لطفاً اطلاعات خود را
+            با دقت وارد کنید.
+
+        </p>
+
+
+        <form id="order-form">
+
+
+            <label>
+
+                نام و نام خانوادگی
+
+                <input
+                    type="text"
+                    id="customer-name"
+                    required
+                    placeholder="نام و نام خانوادگی">
+
+            </label>
+
+
+            <label>
+
+                شماره تماس
+
+                <input
+                    type="tel"
+                    id="customer-phone"
+                    required
+                    placeholder="۰۹۱۲۱۲۳۴۵۶۷">
+
+            </label>
+
+
+            <label>
+
+                استان
+
+                <input
+                    type="text"
+                    id="customer-province"
+                    required
+                    placeholder="استان">
+
+            </label>
+
+
+            <label>
+
+                شهر
+
+                <input
+                    type="text"
+                    id="customer-city"
+                    required
+                    placeholder="شهر">
+
+            </label>
+
+
+            <label>
+
+                آدرس دقیق
+
+                <textarea
+                    id="customer-address"
+                    required
+                    placeholder="آدرس کامل محل تحویل">
+
+                </textarea>
+
+            </label>
+
+
+            <label>
+
+                کد پستی
+
+                <input
+                    type="text"
+                    id="customer-postal"
+                    required
+                    maxlength="10"
+                    inputmode="numeric"
+                    placeholder="کد پستی ۱۰ رقمی">
+
+            </label>
+
+
+            <label>
+
+                توضیحات سفارش
+
+                <textarea
+                    id="customer-note"
+                    placeholder="مثلاً بسته‌بندی هدیه باشد...">
+
+                </textarea>
+
+            </label>
+
+
+            <button
+                type="submit"
+                class="submit-order-button">
+
+                ثبت سفارش
+
+            </button>
+
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     JavaScript
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+   ورود به گالری
+===================================================== */
+
+function enterGallery() {
+
+    const welcome =
+        document.getElementById("welcome");
+
+    const mainSite =
+        document.getElementById("main-site");
+
+
+    welcome.classList.add("hide");
+
+
+    setTimeout(function () {
+
+        welcome.style.display = "none";
+
+        mainSite.classList.add("show");
+
+        window.scrollTo(0, 0);
+
+    }, 600);
+
+}
+
+
+
+/* =====================================================
+   منوی موبایل
+===================================================== */
+
+function toggleMenu() {
+
+    document
+        .querySelector(".main-nav")
+        .classList.toggle("mobile-open");
+
+}
+
+
+
+/* =====================================================
+   Google Sheets
+===================================================== */
+
+const sheetId =
+    "155dRNylDKiraQQjhSR4kIRvi0-hpcj4ThitpcyDn16k";
+
+
+const csvUrl =
+    `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv`;
+
+
+
+function cleanValue(value) {
+
+    if (!value) {
+
+        return "";
+
+    }
+
+    return value
+        .replace(/^"|"$/g, "")
+        .trim();
+
+}
+
+
+
+function isValidLink(link) {
+
+    return (
+        link &&
+        link !== "#" &&
+        link !== '""' &&
+        link.trim() !== ""
+    );
+
+}
+
+
+
+/* =====================================================
+   تبدیل قیمت
+===================================================== */
+
+function getNumericPrice(price) {
+
+    if (!price) {
+
+        return 0;
+
+    }
+
+
+    return parseInt(
+        String(price)
+            .replace(/[^\d]/g, ""),
+        10
+    ) || 0;
+
+}
+
+
+
+/* =====================================================
+   محصولات
+===================================================== */
+
+async function loadProducts() {
+
+    const grid =
+        document.getElementById("product-grid");
+
+    const loading =
+        document.getElementById("loading-msg");
+
+
+    try {
+
+        const response =
+            await fetch(csvUrl);
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "خطا در دریافت اطلاعات محصولات"
+            );
 
         }
 
 
-        /* منوی موبایل */
+        const data =
+            await response.text();
 
-        function toggleMenu() {
 
-            document.querySelector(".main-nav").classList.toggle("mobile-open");
+        const lines =
+            data.split("\n");
 
-        }
 
+        loading.style.display = "none";
 
-        /* =========================
-           Google Sheets
-        ========================== */
 
-        const sheetId =
-            '155dRNylDKiraQQjhSR4kIRvi0-hpcj4ThitpcyDn16k';
+        for (
+            let i = 1;
+            i < lines.length;
+            i++
+        ) {
 
-        const csvUrl =
-            `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv`;
 
+            const p =
+                lines[i].split(
+                    /,(?=(?:(?:[^"]*"){2})*[^"]*$)/
+                );
 
-        function cleanValue(value) {
 
-            if (!value) return "";
+            if (p.length < 3) {
 
-            return value
-                .replace(/^"|"$/g, "")
-                .trim();
-
-        }
-
-
-        function isValidLink(link) {
-
-            return link &&
-                link !== "#" &&
-                link !== '""' &&
-                link.trim() !== "";
-
-        }
-
-
-        async function loadProducts() {
-
-            const grid =
-                document.getElementById("product-grid");
-
-            const loading =
-                document.getElementById("loading-msg");
-
-            try {
-
-                const response =
-                    await fetch(csvUrl);
-
-                const data =
-                    await response.text();
-
-                const lines =
-                    data.split("\n");
-
-                loading.style.display = "none";
-
-
-                for (let i = 1; i < lines.length; i++) {
-
-                    const p =
-                        lines[i].split(
-                            /,(?=(?:(?:[^"]*"){2})*[^"]*$)/
-                        );
-
-
-                    if (p.length < 3) continue;
-
-
-                    const title =
-                        cleanValue(p[0]) || "محصول هور آفرین";
-
-                    const price =
-                        cleanValue(p[1]) || "تماس بگیرید";
-
-                    const img =
-                        cleanValue(p[2]);
-
-                    const rubika =
-                        cleanValue(p[3]);
-
-                    const instagram =
-                        cleanValue(p[4]);
-
-                    const pay =
-                        cleanValue(p[5]);
-
-                    const desc =
-                        cleanValue(p[6]);
-
-
-                    let buttons = "";
-
-
-                    if (isValidLink(pay)) {
-
-                        buttons += `
-                            <a href="${pay}"
-                               target="_blank"
-                               class="product-button payment">
-                               💳 پرداخت آنلاین
-                            </a>
-                        `;
-
-                    }
-
-
-                    if (isValidLink(rubika)) {
-
-                        buttons += `
-                            <a href="${rubika}"
-                               target="_blank"
-                               class="product-button rubika">
-                               💬 سفارش در روبیکا
-                            </a>
-                        `;
-
-                    }
-
-
-                    if (isValidLink(instagram)) {
-
-                        buttons += `
-                            <a href="${instagram}"
-                               target="_blank"
-                               class="product-button instagram">
-                               📷 اینستاگرام
-                            </a>
-                        `;
-
-                    }
-
-
-                    const card =
-                        document.createElement("article");
-
-                    card.className =
-                        "product-card";
-
-
-                    card.innerHTML = `
-
-                        <div class="product-image">
-
-                            ${
-                                img
-                                ?
-                                `<img src="${img}"
-                                      alt="${title}"
-                                      loading="lazy">`
-                                :
-                                `<div class="no-image">
-                                    🕯️
-                                 </div>`
-                            }
-
-                        </div>
-
-
-                        <div class="product-info">
-
-                            <h3>
-                                ${title}
-                            </h3>
-
-                            ${
-                                desc
-                                ?
-                                `<p>${desc}</p>`
-                                :
-                                ""
-                            }
-
-
-                            <div class="product-price">
-
-                                ${price}
-
-                            </div>
-
-
-                            <div class="product-buttons">
-
-                                ${buttons}
-
-                            </div>
-
-                        </div>
-
-                    `;
-
-
-                    grid.appendChild(card);
-
-                }
+                continue;
 
             }
 
-            catch (error) {
 
-                console.error(error);
+            const title =
+                cleanValue(p[0])
+                || "محصول هور آفرین";
 
-                loading.innerHTML =
-                    "در بارگذاری محصولات مشکلی پیش آمد.";
+
+            const price =
+                cleanValue(p[1])
+                || "تماس بگیرید";
+
+
+            const img =
+                cleanValue(p[2]);
+
+
+            const rubika =
+                cleanValue(p[3]);
+
+
+            const instagram =
+                cleanValue(p[4]);
+
+
+            const pay =
+                cleanValue(p[5]);
+
+
+            const desc =
+                cleanValue(p[6]);
+
+
+            let buttons = "";
+
+
+
+            if (isValidLink(pay)) {
+
+                buttons += `
+
+                    <a
+                        href="${pay}"
+                        target="_blank"
+                        rel="noopener"
+                        class="product-button payment">
+
+                        💳 پرداخت آنلاین
+
+                    </a>
+
+                `;
 
             }
+
+
+
+            if (isValidLink(rubika)) {
+
+                buttons += `
+
+                    <a
+                        href="${rubika}"
+                        target="_blank"
+                        rel="noopener"
+                        class="product-button rubika">
+
+                        💬 سفارش در روبیکا
+
+                    </a>
+
+                `;
+
+            }
+
+
+
+            if (isValidLink(instagram)) {
+
+                buttons += `
+
+                    <a
+                        href="${instagram}"
+                        target="_blank"
+                        rel="noopener"
+                        class="product-button instagram">
+
+                        📷 اینستاگرام
+
+                    </a>
+
+                `;
+
+            }
+
+
+
+            const product = {
+
+                title: title,
+
+                price: price,
+
+                img: img,
+
+                desc: desc
+
+            };
+
+
+
+            const productJSON =
+                JSON.stringify(product)
+                    .replace(/'/g, "&#39;");
+
+
+
+            const card =
+                document.createElement("article");
+
+
+            card.className =
+                "product-card";
+
+
+            card.innerHTML = `
+
+                <div class="product-image">
+
+
+                    ${
+                        img
+
+                        ?
+
+                        `<img
+                            src="${img}"
+                            alt="${title}"
+                            loading="lazy">`
+
+                        :
+
+                        `<div class="no-image">
+                            🕯️
+                         </div>`
+
+                    }
+
+
+                </div>
+
+
+                <div class="product-info">
+
+
+                    <h3>
+                        ${title}
+                    </h3>
+
+
+                    ${
+                        desc
+
+                        ?
+
+                        `<p>
+                            ${desc}
+                         </p>`
+
+                        :
+
+                        `<p>
+                            یک انتخاب خاص از
+                            گالری هور آفرین
+                         </p>`
+
+                    }
+
+
+                    <div class="product-price">
+
+                        ${price}
+
+                    </div>
+
+
+                    <div class="product-buttons">
+
+
+                        <button
+                            class="product-button add-to-cart"
+                            onclick='addToCart(${productJSON})'>
+
+                            🛒 افزودن به سبد خرید
+
+                        </button>
+
+
+                        ${buttons}
+
+
+                    </div>
+
+
+                </div>
+
+            `;
+
+
+            grid.appendChild(card);
 
         }
 
 
-        loadProducts();
+    }
 
-    </script>
+    catch (error) {
+
+        console.error(error);
+
+
+        loading.innerHTML = `
+
+            <p>
+                در بارگذاری محصولات مشکلی پیش آمد.
+            </p>
+
+            <small>
+                لطفاً اتصال Google Sheets را بررسی کنید.
+            </small>
+
+        `;
+
+    }
+
+}
+
+
+
+/* =====================================================
+   سبد خرید
+===================================================== */
+
+let cart = [];
+
+
+
+function addToCart(product) {
+
+
+    const existingProduct =
+        cart.find(
+            item =>
+                item.title === product.title
+        );
+
+
+    if (existingProduct) {
+
+        existingProduct.quantity++;
+
+    }
+
+    else {
+
+        cart.push({
+
+            title: product.title,
+
+            price: product.price,
+
+            img: product.img,
+
+            desc: product.desc,
+
+            quantity: 1
+
+        });
+
+    }
+
+
+    updateCart();
+
+
+    showCartMessage(
+        "محصول به سبد خرید اضافه شد 🛒"
+    );
+
+}
+
+
+
+/* =====================================================
+   پیام سبد
+===================================================== */
+
+function showCartMessage(message) {
+
+    alert(message);
+
+}
+
+
+
+/* =====================================================
+   بروزرسانی تعداد سبد
+===================================================== */
+
+function updateCart() {
+
+
+    const count =
+        cart.reduce(
+
+            function(total, item) {
+
+                return total +
+                    item.quantity;
+
+            },
+
+            0
+
+        );
+
+
+    document
+        .getElementById("cart-count")
+        .textContent = count;
+
+
+}
+
+
+
+/* =====================================================
+   باز کردن سبد
+===================================================== */
+
+function openCart() {
+
+
+    renderCart();
+
+
+    document
+        .getElementById("cart-modal")
+        .classList.add("active");
+
+}
+
+
+
+/* =====================================================
+   بستن سبد
+===================================================== */
+
+function closeCart() {
+
+
+    document
+        .getElementById("cart-modal")
+        .classList.remove("active");
+
+}
+
+
+
+/* =====================================================
+   نمایش سبد
+===================================================== */
+
+function renderCart() {
+
+
+    const container =
+        document.getElementById("cart-items");
+
+
+    const totalElement =
+        document.getElementById(
+            "cart-total-price"
+        );
+
+
+    if (cart.length === 0) {
+
+
+        container.innerHTML = `
+
+            <div class="empty-cart">
+
+                🛒
+
+                <p>
+                    سبد خرید شما خالی است.
+                </p>
+
+            </div>
+
+        `;
+
+
+        totalElement.textContent =
+            "۰ تومان";
+
+
+        return;
+
+    }
+
+
+
+    let total = 0;
+
+
+    container.innerHTML = "";
+
+
+
+    cart.forEach(
+        function(item, index) {
+
+
+            const numericPrice =
+                getNumericPrice(
+                    item.price
+                );
+
+
+            total +=
+                numericPrice *
+                item.quantity;
+
+
+
+            container.innerHTML += `
+
+                <div class="cart-item">
+
+
+                    <div class="cart-item-image">
+
+                        ${
+                            item.img
+
+                            ?
+
+                            `<img
+                                src="${item.img}"
+                                alt="${item.title}">`
+
+                            :
+
+                            `🕯️`
+
+                        }
+
+                    </div>
+
+
+                    <div class="cart-item-info">
+
+
+                        <strong>
+                            ${item.title}
+                        </strong>
+
+
+                        <span>
+                            ${item.price}
+                        </span>
+
+
+                    </div>
+
+
+                    <div class="quantity-control">
+
+
+                        <button
+                            onclick="changeQuantity(${index}, 1)">
+
+                            +
+
+                        </button>
+
+
+                        <span>
+                            ${item.quantity}
+                        </span>
+
+
+                        <button
+                            onclick="changeQuantity(${index}, -1)">
+
+                            −
+
+                        </button>
+
+
+                    </div>
+
+
+                    <button
+                        class="remove-item"
+                        onclick="removeFromCart(${index})">
+
+                        حذف
+
+                    </button>
+
+
+                </div>
+
+            `;
+
+        }
+    );
+
+
+
+    totalElement.textContent =
+        total.toLocaleString("fa-IR")
+        + " تومان";
+
+}
+
+
+
+/* =====================================================
+   تغییر تعداد
+===================================================== */
+
+function changeQuantity(index, change) {
+
+
+    if (!cart[index]) {
+
+        return;
+
+    }
+
+
+    cart[index].quantity += change;
+
+
+
+    if (cart[index].quantity <= 0) {
+
+        cart.splice(index, 1);
+
+    }
+
+
+    updateCart();
+
+    renderCart();
+
+}
+
+
+
+/* =====================================================
+   حذف محصول
+===================================================== */
+
+function removeFromCart(index) {
+
+
+    cart.splice(index, 1);
+
+
+    updateCart();
+
+    renderCart();
+
+}
+
+
+
+/* =====================================================
+   رفتن به ثبت سفارش
+===================================================== */
+
+function openCheckout() {
+
+
+    if (cart.length === 0) {
+
+
+        alert(
+            "سبد خرید شما خالی است."
+        );
+
+
+        return;
+
+    }
+
+
+    closeCart();
+
+
+    document
+        .getElementById("checkout-modal")
+        .classList.add("active");
+
+}
+
+
+
+/* =====================================================
+   بستن فرم سفارش
+===================================================== */
+
+function closeCheckout() {
+
+
+    document
+        .getElementById("checkout-modal")
+        .classList.remove("active");
+
+}
+
+
+
+/* =====================================================
+   اعتبارسنجی کد پستی
+===================================================== */
+
+document
+    .getElementById("customer-postal")
+    .addEventListener(
+        "input",
+        function() {
+
+
+            this.value =
+                this.value.replace(
+                    /[^0-9۰-۹]/g,
+                    ""
+                );
+
+        }
+    );
+
+
+
+/* =====================================================
+   ثبت سفارش آزمایشی
+===================================================== */
+
+document
+    .getElementById("order-form")
+    .addEventListener(
+        "submit",
+        function(event) {
+
+
+            event.preventDefault();
+
+
+
+            if (cart.length === 0) {
+
+
+                alert(
+                    "سبد خرید شما خالی است."
+                );
+
+
+                return;
+
+            }
+
+
+
+            const order = {
+
+
+                customer: {
+
+
+                    name:
+                        document
+                        .getElementById(
+                            "customer-name"
+                        )
+                        .value
+                        .trim(),
+
+
+                    phone:
+                        document
+                        .getElementById(
+                            "customer-phone"
+                        )
+                        .value
+                        .trim(),
+
+
+                    province:
+                        document
+                        .getElementById(
+                            "customer-province"
+                        )
+                        .value
+                        .trim(),
+
+
+                    city:
+                        document
+                        .getElementById(
+                            "customer-city"
+                        )
+                        .value
+                        .trim(),
+
+
+                    address:
+                        document
+                        .getElementById(
+                            "customer-address"
+                        )
+                        .value
+                        .trim(),
+
+
+                    postal:
+                        document
+                        .getElementById(
+                            "customer-postal"
+                        )
+                        .value
+                        .trim(),
+
+
+                    note:
+                        document
+                        .getElementById(
+                            "customer-note"
+                        )
+                        .value
+                        .trim()
+
+                },
+
+
+                products: cart
+
+            };
+
+
+
+            console.log(
+                "ORDER:",
+                order
+            );
+
+
+
+            alert(
+                "اطلاعات سفارش با موفقیت آماده شد. در مرحله بعد سیستم ثبت واقعی سفارش و پرداخت را وصل می‌کنیم."
+            );
+
+        }
+    );
+
+
+
+/* =====================================================
+   شروع بارگذاری محصولات
+===================================================== */
+
+loadProducts();
+
+</script>
 
 </body>
 
